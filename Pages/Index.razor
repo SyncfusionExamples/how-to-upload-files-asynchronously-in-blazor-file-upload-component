@@ -1,0 +1,48 @@
+﻿@page "/"
+
+<div id="DropArea">Drop files here to upload</div>
+
+<SfUploader ID="UploadFiles" AutoUpload=true SequentialUpload=true
+    DirectoryUpload=true DropArea="#DropArea">
+    <UploaderAsyncSettings SaveUrl="api/SampleData/Save" 
+        RemoveUrl="api/SampleData/Remove" ChunkSize=500000
+        RetryAfterDelay=3000 RetryCount=5></UploaderAsyncSettings>
+    <UploaderEvents BeforeRemove="BeforeRemove"></UploaderEvents>
+    <UploaderFiles>
+        <UploaderUploadedFiles Name="Bug" Size="28000" Type=".png"></UploaderUploadedFiles>
+    </UploaderFiles>
+</SfUploader>
+
+<style>
+    #DropArea {
+        padding: 50px 25px;
+        margin: 30px auto;
+        border: 1px solid #c3c3c3;
+        text-align: center;
+        width: 20%;
+        display: inline-flex;
+    }
+
+    .e-file-select,
+    .e-file-drop {
+        display: none;
+    }
+
+    body .e-upload-drag-hover {
+        outline: 2px dashed brown;
+    }
+
+    #uploadfile {
+        width: 60%;
+        display: inline-flex;
+        margin-left: 5%;
+    }
+</style>
+
+@code{
+    private void BeforeRemove(BeforeRemoveEventArgs args)
+    {
+        args.PostRawFile = false;
+    }
+}
+
