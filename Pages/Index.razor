@@ -3,13 +3,15 @@
 <div id="DropArea">Drop files here to upload</div>
 
 <SfUploader ID="UploadFiles" AutoUpload=true SequentialUpload=true
-    DirectoryUpload=true DropArea="#DropArea">
-    <UploaderAsyncSettings SaveUrl="api/SampleData/Save" 
-        RemoveUrl="api/SampleData/Remove" ChunkSize=500000
-        RetryAfterDelay=3000 RetryCount=5></UploaderAsyncSettings>
+            DirectoryUpload=true DropArea="#DropArea">
+    <UploaderAsyncSettings SaveUrl="api/SampleData/Save"
+                           RemoveUrl="api/SampleData/Remove" ChunkSize=500000
+                           RetryAfterDelay=3000 RetryCount=5></UploaderAsyncSettings>
     <UploaderEvents BeforeRemove="BeforeRemove"></UploaderEvents>
     <UploaderFiles>
-        <UploaderUploadedFiles Name="Bug" Size="28000" Type=".png"></UploaderUploadedFiles>
+        <UploaderUploadedFiles Name="Nature" Size=500000 Type=".png"></UploaderUploadedFiles>
+        <UploaderUploadedFiles Name="TypeScript Succinctly" Size=12000 Type=".pdf"></UploaderUploadedFiles>
+        <UploaderUploadedFiles Name="ASP.NET Webhooks" Size=500000 Type=".docx"></UploaderUploadedFiles>
     </UploaderFiles>
 </SfUploader>
 
@@ -39,7 +41,7 @@
     }
 </style>
 
-@code{
+@code {
     private void BeforeRemove(BeforeRemoveEventArgs args)
     {
         args.PostRawFile = false;
