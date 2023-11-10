@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MyBlazorApp.Data
+namespace UploadFiles.Data
 {
     [Route("api/[controller]")]
     public class SampleDataController : ControllerBase
